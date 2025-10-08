@@ -1,8 +1,8 @@
 //your JS code here. If required.
 (function (){
-	const form = doument.getElementById("login-form")
-	const userName = doument.getElementById("username")
-	const pass = doument.getElementById("passsword")
+	const form = document.getElementById("login-form")
+	const userName = document.getElementById("username")
+	const pass = document.getElementById("password");
 	const checkbox = document.getElementById("checkbox")
 	const submit = document.getElementById("submit")
 	const exist = document.getElementById("existing")
@@ -35,16 +35,16 @@
 			localStorage.setItem("password", password)
 		}
 		else{
-			localStorage.removeItem("username", user);
-			localStorage.removeItem("password", password)
+			localStorage.removeItem("username");
+			localStorage.removeItem("password")
 		}
 		updateExistingVisibility();
 
 		exist.addEventListener("click" , ()=>{
 			const savedUsername = localStorage.getItem("username")
 			if(savedUsername){
-				alert(`Logged in as ${user}`)
+				alert(`Logged in as ${savedUsername}`)
 			}
 		})
 	})
-}){};
+})();
