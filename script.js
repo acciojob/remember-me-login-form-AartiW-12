@@ -14,7 +14,6 @@
   }
 
   window.addEventListener("DOMContentLoaded", () => {
-    // Ensure initial expectations: empty fields & unchecked checkbox
     usernameInput.value = "";
     passwordInput.value = "";
     rememberCheckbox.checked = false;
@@ -27,7 +26,8 @@
     const username = usernameInput.value.trim();
     const password = passwordInput.value;
 
-    alert(Logged in as ${username});
+    // ✅ Corrected template literal
+    alert(`Logged in as ${username}`);
 
     if (rememberCheckbox.checked) {
       localStorage.setItem("username", username);
