@@ -43,7 +43,7 @@
   existingBtn.addEventListener("click", () => {
     const savedUsername = localStorage.getItem("username");
     if (savedUsername) {
-      alert(Logged in as ${savedUsername});
+      alert(`Logged in as ${savedUsername}`);
     }
   });
 })();
