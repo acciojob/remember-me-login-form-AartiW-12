@@ -1,49 +1,49 @@
-//your JS code here. If required.
-(function (){
-	const form = document.getElementById("login-form")
-	const userName = document.getElementById("username")
-	const pass = document.getElementById("password");
-	const checkbox = document.getElementById("checkbox")
-	const submit = document.getElementById("submit")
-	const exist = document.getElementById("existing")
+(function () {
+  const form = document.getElementById("login-form");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const rememberCheckbox = document.getElementById("checkbox");
+  const existingBtn = document.getElementById("existing");
 
-	function credExist() {
-		return localStorage.getItem("username") && localStorage.getItem("password");
-	}
+  function credsExist() {
+    return localStorage.getItem("username") && localStorage.getItem("password");
+  }
 
-	function updateExistingVisibility() {
-		exist.style.display = credExist() ? "block" : "none"
-	}
+  function updateExistingVisibility() {
+    existingBtn.style.display = credsExist() ? "block" : "none";
+  }
 
-	window.addEventListener("DOMContentLoaded", ()=>{
-		userName.value="";
-		pass.value = "";
-		checkbox.checked = false;
-		updateExistingVisibility();
-	})
+  window.addEventListener("DOMContentLoaded", () => {
+    // Ensure initial expectations: empty fields & unchecked checkbox
+    usernameInput.value = "";
+    passwordInput.value = "";
+    rememberCheckbox.checked = false;
+    updateExistingVisibility();
+  });
 
-	form.addEventListener("submit", (e)=>{
-		e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-		const user = userName.value.trim();
-		const password = pass.value;
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
 
-		alert(`Logged in as ${user}`)
+    alert(Logged in as ${username});
 
-		if(checkbox.checked){
-			localStorage.setItem("username", user);
-			localStorage.setItem("password", password)
-		}
-		else{
-			localStorage.removeItem("username");
-			localStorage.removeItem("password")
-		}
-		updateExistingVisibility();
-	})
-	exist.addEventListener("click" , ()=>{
-			const savedUsername = localStorage.getItem("username")
-			if(savedUsername){
-				alert(`Logged in as ${savedUsername}`)
-		}
-	})
+    if (rememberCheckbox.checked) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+    }
+
+    updateExistingVisibility();
+  });
+
+  existingBtn.addEventListener("click", () => {
+    const savedUsername = localStorage.getItem("username");
+    if (savedUsername) {
+      alert(Logged in as ${savedUsername});
+    }
+  });
 })();
